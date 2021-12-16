@@ -1,0 +1,38 @@
+---
+title: "MKTG367 Data Types"
+author: "Morgan Bale"
+date: "12/16/2021"
+output: html_document
+---
+
+Load libraries
+```{r}
+library(tidyverse)
+```
+
+Create cross sectional data: multiple individuals, one time period
+```{r}
+cross_section <- tibble(person=rep(1:10), instagram=rbinom(10, size=1, prob=.3), facebook=rbinom(10, size=1, prob=.5), purchase=rbinom(10, size=1, prob=.2)) 
+
+#we can add a time period variable, but they will all be the same, because it is cross sectional 
+cross_section <- cross_section %>% mutate(week="3/12/2022")
+```
+
+Create time series data: one individual, multiple time periods
+```{r}
+time_series <- tibble(week=rep(1:10), instagram=rbinom(10, size=1, prob=.3), facebook=rbinom(10, size=1, prob=.5), purchase=rbinom(10, size=1, prob=.2))
+
+#we can add a person variable, but they will all be the same, because it is time series
+time_series <- time_series %>% mutate(person="Morgan")
+```
+
+Create panel data set: multiple individuals, multiple time periods
+```{r}
+panel <- tibble(week=rep(1:10, each=10), person=rep(1:10, times=10), instagram=rbinom(100, size=1, prob=.3), facebook=rbinom(100, size=1, prob=.5), purchase=rbinom(100, size=1, prob=.2))
+
+nrow(panel)
+ncol(panel)
+```
+
+
+
