@@ -2,7 +2,7 @@
 title: "MKTG367 Data Types"
 author: "Morgan Bale"
 date: "12/16/2021"
-output: html_document
+output: github_document
 ---
 
 Load libraries
@@ -34,5 +34,12 @@ nrow(panel)
 ncol(panel)
 ```
 
+Summary statistics
+```{r}
+summary(panel)
+
+library(vtable)
+st(panel)
+```
 
 
